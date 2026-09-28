@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário Acessível</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eeeeee;
+            padding: 30px;
+        }
+
+        form {
+            max-width: 500px;
+            margin: auto;
+            background-color: white;
+            padding: 30px;
+            border: 2px solid #333;
+        }
+
+        fieldset {
+            padding: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .ajuda {
+            font-size: 14px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 12px 25px;
+            font-size: 16px;
+        }
+
+        input:focus,
+        button:focus {
+            outline: 4px solid black;
+        }
+    </style>
+</head>
+
+<body>
+
+<main>
+    <h1>Formulário de Contato Acessível</h1>
+
+    <form>
+        <fieldset>
+            <legend>Dados para contato</legend>
+
+            <p>Os campos marcados com * são obrigatórios.</p>
+
+            <label for="nome">Nome completo *</label>
+            <input
+                type="text"
+                id="nome"
+                name="nome"
+                required
+                aria-required="true"
+            >
+
+            <label for="email">E-mail *</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                aria-required="true"
+                aria-describedby="ajuda-email"
+            >
+
+            <p id="ajuda-email" class="ajuda">
+                Exemplo: nome@email.com
+            </p>
+
+            <label for="mensagem">Mensagem *</label>
+            <textarea
+                id="mensagem"
+                name="mensagem"
+                rows="5"
+                required
+                aria-required="true"
+            ></textarea>
+
+            <br>
+
+            <button type="submit">
+                Enviar mensagem
+            </button>
+
+        </fieldset>
+    </form>
+</main>
+
+</body>
+</html>
