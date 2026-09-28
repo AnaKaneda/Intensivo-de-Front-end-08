@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste A/B</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        button {
+            padding: 15px 25px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+
+        #botaoA {
+            background-color: lightblue;
+        }
+
+        #botaoB {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Teste A/B</h1>
+    <p>Clique no botão que você prefere:</p>
+
+    <button id="botaoA" onclick="clicarA()">Botão A</button>
+    <button id="botaoB" onclick="clicarB()">Botão B</button>
+
+    <p>Cliques no A: <span id="contadorA">0</span></p>
+    <p>Cliques no B: <span id="contadorB">0</span></p>
+
+    <h2 id="resultado">Nenhum resultado ainda.</h2>
+
+    <script>
+        let cliquesA = 0;
+        let cliquesB = 0;
+
+        function clicarA() {
+            cliquesA++;
+            atualizar();
+        }
+
+        function clicarB() {
+            cliquesB++;
+            atualizar();
+        }
+
+        function atualizar() {
+            document.getElementById("contadorA").textContent = cliquesA;
+            document.getElementById("contadorB").textContent = cliquesB;
+
+            if (cliquesA > cliquesB) {
+                document.getElementById("resultado").textContent =
+                    "Botão A recebeu mais cliques.";
+            } else if (cliquesB > cliquesA) {
+                document.getElementById("resultado").textContent =
+                    "Botão B recebeu mais cliques.";
+            } else {
+                document.getElementById("resultado").textContent =
+                    "Os dois botões estão empatados.";
+            }
+        }
+    </script>
+
+</body>
+</html>
